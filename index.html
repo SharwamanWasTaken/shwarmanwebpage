@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SharwamanMan | Minecraft Dev & PvP Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  /* --- Reset & Global --- */
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+  body { background: #0f0f1a; color: #fff; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+
+  /* --- Hero Section --- */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(135deg,#1e1e2f,#0f0f1a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h1 { font-size: 4rem; margin-bottom: 20px; animation: fadeInUp 2s ease forwards; opacity:0;}
+  .hero h2 { font-size: 2rem; margin-bottom: 40px; animation: fadeInUp 2.5s ease forwards; opacity:0;}
+  .hero button { padding: 15px 40px; font-size: 1.2rem; background:#ff4c4c; border:none; border-radius:50px; cursor:pointer; transition: 0.3s; animation: fadeInUp 3s ease forwards; opacity:0;}
+  .hero button:hover { transform: scale(1.1); }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- Particle Background --- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* --- Sections --- */
+  section { padding: 100px 10%; }
+  h2.section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; position: relative; }
+  h2.section-title::after { content: ''; width: 80px; height: 4px; background:#ff4c4c; display:block; margin: 10px auto; border-radius:2px; }
+
+  /* --- About Section --- */
+  .about { display: flex; flex-wrap: wrap; align-items:center; justify-content: center; gap: 50px; }
+  .about img { border-radius: 20px; max-width: 300px; width:100%; animation: fadeInLeft 2s ease forwards; opacity:0;}
+  .about .text { max-width: 600px; animation: fadeInRight 2s ease forwards; opacity:0;}
+  .about .text p { margin-bottom: 20px; line-height: 1.6; }
+  @keyframes fadeInLeft { 0% { opacity:0; transform: translateX(-50px);} 100%{opacity:1; transform:translateX(0);} }
+  @keyframes fadeInRight { 0% { opacity:0; transform: translateX(50px);} 100%{opacity:1; transform:translateX(0);} }
+
+  /* --- Skills Section --- */
+  .skills { display: flex; flex-wrap: wrap; justify-content: space-around; gap:40px; }
+  .skill { max-width:300px; }
+  .skill h3 { margin-bottom: 15px; }
+  .skill-bar { background:#222; border-radius: 50px; overflow:hidden; height:20px; }
+  .skill-bar-inner { height:100%; width:0%; background:#ff4c4c; border-radius:50px; transition: 1.5s; }
+
+  /* --- Projects Section --- */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:30px; }
+  .project { background:#1a1a2e; border-radius:15px; overflow:hidden; transition:0.3s; }
+  .project img { width:100%; height:200px; object-fit:cover; transition:0.3s; }
+  .project:hover img { transform: scale(1.05); }
+  .project .content { padding:20px; }
+  .project h3 { margin-bottom:10px; }
+  .project p { font-size:0.9rem; line-height:1.4; }
+
+  /* --- Contact Section --- */
+  .contact form { max-width:500px; margin:0 auto; display:flex; flex-direction: column; gap:20px; }
+  .contact input, .contact textarea { padding:15px; border-radius:10px; border:none; outline:none; }
+  .contact button { padding:15px; border:none; border-radius:50px; background:#ff4c4c; color:#fff; font-size:1.1rem; cursor:pointer; transition:0.3s; }
+  .contact button:hover { transform: scale(1.05); }
+
+  /* --- Footer --- */
+  footer { text-align:center; padding:50px 10%; background:#111; font-size:0.9rem; color:#aaa; }
+</style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div id="particles-js"></div>
+  <h1>SharwamanMan</h1>
+  <h2>Minecraft Dev & PvP Specialist</h2>
+  <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Explore My World</button>
+</div>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <h2 class="section-title">About Me</h2>
+  <img src="https://i.imgur.com/8Km9tLL.png" alt="SharwamanMan Avatar">
+  <div class="text">
+    <p>Hi! I’m <strong>SharwamanMan</strong>, a professional Minecraft developer focused on PvP mechanics, custom plugins, and server optimization. I specialize in creating engaging PvP systems, custom events, and gameplay enhancements.</p>
+    <p>I work with <strong>Java (Spigot/Paper API)</strong> and <strong>Skript</strong>, always delivering professional, maintainable code. I love crafting unique experiences for players while keeping servers fast and stable.</p>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section class="skills" id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skill">
+    <h3>Java / Spigot API</h3>
+    <div class="skill-bar"><div class="skill-bar-inner" data-width="95%"></div></div>
+  </div>
+  <div class="skill">
+    <h3>Skript</h3>
+    <div class="skill-bar"><div class="skill-bar-inner" data-width="90%"></div></div>
+  </div>
+  <div class="skill">
+    <h3>Plugin Architecture</h3>
+    <div class="skill-bar"><div class="skill-bar-inner" data-width="85%"></div></div>
+  </div>
+  <div class="skill">
+    <h3>Server Optimization</h3>
+    <div class="skill-bar"><div class="skill-bar-inner" data-width="80%"></div></div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+  <h2 class="section-title">Projects</h2>
+  <div class="project">
+    <img src="https://i.imgur.com/0gG8lZf.png" alt="PvP Power-Up Plugin">
+    <div class="content">
+      <h3>Dynamic PvP Power-Up</h3>
+      <p>A professional PvP plugin that gives players random buffs on hits or kill streaks. Fully configurable and optimized for performance.</p>
+    </div>
+  </div>
+  <div class="project">
+    <img src="https://i.imgur.com/1pQdJZC.png" alt="Custom Kill Tracker">
+    <div class="content">
+      <h3>Kill Tracker System</h3>
+      <p>Tracks kill streaks, rewards players dynamically, and adds unique PvP mechanics for competitive servers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 SharwamanMan • Minecraft PvP Developer • Crafted with 💻 and ❤️
+</footer>
+
+<!-- --- Scripts --- -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+/* --- Particle Background --- */
+particlesJS('particles-js', {
+  "particles": {
+    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#ff4c4c" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.5, "random": true },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#ff4c4c", "opacity": 0.2, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": {
+    "events": { "onhover": { "enable": true, "mode": "repulse" } },
+    "modes": { "repulse": { "distance": 100 } }
+  },
+  "retina_detect": true
+});
+
+/* --- Animate Skill Bars --- */
+window.addEventListener('scroll', () => {
+  const skills = document.querySelectorAll('.skill-bar-inner');
+  skills.forEach(bar => {
+    const rect = bar.getBoundingClientRect();
+    if(rect.top < window.innerHeight){
+      bar.style.width = bar.getAttribute('data-width');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
